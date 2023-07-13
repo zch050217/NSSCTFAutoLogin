@@ -1,6 +1,4 @@
-import html
 import os
-import re
 import requests
 from sendgrid import SendGridAPIClient
 from sendgrid.helpers.mail import Mail
