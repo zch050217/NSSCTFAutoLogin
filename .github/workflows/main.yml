@@ -1,0 +1,36 @@
+name: Run
+
+on:
+  schedule:
+     - cron: "12 3 * * *"
+permissions:
+  contents: read
+
+jobs:
+  scrape:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Set up Python
+      uses: actions/setup-python@v3
+      with:
+        python-version: '3.11'
+    - name: Install packages
+      run: |
+        python -m pip install --upgrade pip
+        pip install requests,sendgrid
+    - name: Run
+      env:
+        # NSSCTF的账号密码，必填
+        NSSCTF_USERNAME: ${{ secrets.NSSCTF_USERNAME }}
+        NSSCTF_PASSWORD: ${{ secrets.NSSCTF_PASSWORD }}
+        # https://app.sendgrid.com/settings/api_keys, sendgrid发送邮件相关，不发送邮件通知请注释以下三行
+        SENDGRID_API_KEY: ${{ secrets.SENDGRID_API_KEY }}
+        SENDGRID_FROM_EMAIL: ${{ secrets.SENDGRID_FROM_EMAIL }}
+        SENDGRID_TO_EMAIL: ${{ secrets.SENDGRID_TO_EMAIL }}
+        # https://sct.ftqq.com/sendkey, sever酱的key，不发送sever微信通知请注释以下一行
+        FTQQ_SCKEY: ${{ secrets.FTQQ_SCKEY }}
+      run: | 
+        python main.py
