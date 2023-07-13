@@ -37,7 +37,7 @@ def signin(cookies):
 
 def get_coin_num(cookies):
     """获取金币数量"""
-    resp = requests.post(
+    resp = requests.get(
         "https://www.nssctf.cn/api/user/info/opt/setting/",
         headers={"User-Agent": USER_AGENT},
         cookies=cookies,
