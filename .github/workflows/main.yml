@@ -2,7 +2,8 @@ name: Run
 
 on:
   schedule:
-     - cron: "12 3 * * *"
+    # 每天早上10点运行
+    - cron: "0 2 * * *"
 permissions:
   contents: read
 
