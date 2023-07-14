@@ -79,7 +79,7 @@ def send_ftqq(coin_num):
         f"https://sc.ftqq.com/{os.environ['FTQQ_SCKEY']}.send",
         data={"text": "NSSCTF 签到结果", "desp": content},
     )
-    return resp.json()["errno"] == 0
+    return resp.json()["data"]["errno"] == 0
 
 
 def main():
