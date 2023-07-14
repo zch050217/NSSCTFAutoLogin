@@ -4,6 +4,7 @@ on:
   schedule:
     # 每天早上10点运行
     - cron: "0 2 * * *"
+  push:
 permissions:
   contents: read
 
