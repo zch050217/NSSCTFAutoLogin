@@ -1,5 +1,17 @@
 # NSSCTFAutoLogin
 
+# 更新内容
+
+- 修改登录逻辑，删除原有签到逻辑以适应新版NSSCTF
+- 新增随机UA头功能
+
+#### 接下来可能会实现的内容
+
+- 多账号签到
+- QQ bot推送
+
+# 原仓库内容
+
 NSSCTF自动签到脚本，基于Github Action，添加了邮件通知和微信通知功能（可通过修改`.github/workflows/main.yml`文件关闭）。
 
 使用[SendGrid](https://sendgrid.com/)的免费邮件额度发送邮件通知
